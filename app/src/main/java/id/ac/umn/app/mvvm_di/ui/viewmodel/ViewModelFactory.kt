@@ -2,7 +2,8 @@ package id.ac.umn.app.mvvm_di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.binar.retrofit.data.Repository
+import id.ac.umn.app.mvvm_di.data.Repository
+
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
 

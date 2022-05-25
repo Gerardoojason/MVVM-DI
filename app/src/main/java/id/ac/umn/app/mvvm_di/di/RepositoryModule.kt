@@ -1,11 +1,18 @@
 package id.ac.umn.app.mvvm_di.di
 
-import id.ac.umn.app.mvvm_di.Repository
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val repositoryModule = module{
-    single{
-        Repository(get())
+import id.ac.umn.app.mvvm_di.data.Repository
+import id.ac.umn.app.mvvm_di.data.service.ApiHelper
+
+import javax.inject.Singleton
+
+object RepositoryModule{
+    @Singleton
+    @Provides
+    fun provideRepository(apiHelper: ApiHelper):Repository{
+        return Repository(apiHelper)
     }
 }
 

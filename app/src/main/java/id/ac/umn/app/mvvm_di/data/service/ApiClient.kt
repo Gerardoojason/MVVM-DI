@@ -1,7 +1,8 @@
 package id.ac.umn.app.mvvm_di.data.service
 
 
-import androidx.viewbinding.BuildConfig
+
+import id.ac.umn.app.mvvm_di.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,23 +18,21 @@ object ApiClient {
                 httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             }
         }
-}
 
-//
-//    fun getInstance(): ApiService {
-//        val instance: ApiService by lazy {
-//            val client = OkHttpClient.Builder()
-//                .addInterceptor(logging)
-//                .build()
-//
-//            val retrofit = Retrofit.Builder()
-//                .baseUrl(BuildConfig.BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .client(client)
-//                .build()
-//
-//            retrofit.create(ApiService::class.java)
-//        }
-//        return instance
-//    }
-//}
+    fun getInstance(): ApiService {
+        val instance: ApiService by lazy {
+            val client = OkHttpClient.Builder()
+                .addInterceptor(logging)
+                .build()
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl(BuildConfig.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+
+            retrofit.create(ApiService::class.java)
+        }
+        return instance
+    }
+}

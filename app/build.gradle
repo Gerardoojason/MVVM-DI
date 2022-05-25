@@ -48,7 +48,7 @@ android {
 dependencies {
 
 
-        implementation'com.google.dagger:dagger-android:2.20¹'
+        implementation'com.google.dagger:dagger-android:2.35.1'
         implementation'com.google.dagger:dagger-android'
 //        support:2.20¹ // if you use the support libraries
         kapt'com.google.dagger:dagger-android-processor:2.20¹'
@@ -73,8 +73,8 @@ dependencies {
     //koin
 //    implementation "org.koin:koin-android-viewmodel:2.1.6"
 //    implementation "org.koin:koin-android:2.1.6"
-
-    implementation "io.insert-koin:koin-android:3.2.0"
+//
+//    implementation "io.insert-koin:koin-android:3.2.0"
 
 
     // Networking
