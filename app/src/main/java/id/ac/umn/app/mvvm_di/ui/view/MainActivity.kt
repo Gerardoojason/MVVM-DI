@@ -3,32 +3,34 @@ package id.ac.umn.app.mvvm_di
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-
-import com.binar.retrofit.data.service.ApiClient
-import com.binar.retrofit.data.service.ApiHelper
-
+import dagger.android.AndroidInjection
 
 
 import id.ac.umn.app.mvvm_di.databinding.ActivityMainBinding
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainActivityViewModel
-    private lateinit var repository: Repository
+
+
     private lateinit var progressDialog: ProgressDialog
     private lateinit var adapter: MainAdapter
-
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel :MainActivityViewModel by viewModels{viewModelFactory}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        repository = Repository(ApiHelper(ApiClient.getInstance()))
-        viewModel = ViewModelProvider(this, ViewModelFactory(repository))[MainActivityViewModel::class.java]
+
+
 
         progressDialog = ProgressDialog(this)
         adapter = MainAdapter()

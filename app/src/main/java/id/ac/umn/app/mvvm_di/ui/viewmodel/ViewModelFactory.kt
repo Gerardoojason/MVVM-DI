@@ -2,16 +2,17 @@ package id.ac.umn.app.mvvm_di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import dagger.Provides
 import id.ac.umn.app.mvvm_di.data.Repository
+import javax.inject.Inject
+import javax.inject.Provider
+import javax.inject.Singleton
 
+@Singleton
+class ViewModelFactory @Inject constructor(
+    private val viewModels :MutableMap<Class<out ViewModel>,Provider<ViewModel>>
+) : ViewModelProvider.NewInstanceFactory() {
 
-class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
-
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
-            return MainActivityViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
-    }
+    override fun <T : ViewModel> create(modelClass: Class<T>): T =
+       viewModels[modelClass]?.get() as T
 }

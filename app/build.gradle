@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id'kotlin-android'
 }
 
 android {
@@ -47,12 +48,11 @@ android {
 
 dependencies {
 
-
+        implementation'com.google.dagger:dagger:2.35.1'
         implementation'com.google.dagger:dagger-android:2.35.1'
-        implementation'com.google.dagger:dagger-android'
-//        support:2.20¹ // if you use the support libraries
-        kapt'com.google.dagger:dagger-android-processor:2.20¹'
-        kapt'com.google.dagger:dagger-compiler:2.20¹'
+        implementation'com.google.dagger:dagger-android support:2.40' // if you use the support libraries
+        kapt'com.google.dagger:dagger-android-processor:2.20'
+        kapt'com.google.dagger:dagger-compiler:2.40'
 
 
     implementation 'androidx.core:core-ktx:1.7.0'

@@ -7,7 +7,7 @@ import id.ac.umn.app.mvvm_di.data.Repository
 import id.ac.umn.app.mvvm_di.data.service.ApiHelper
 
 import javax.inject.Singleton
-
+@Module
 object RepositoryModule{
     @Singleton
     @Provides

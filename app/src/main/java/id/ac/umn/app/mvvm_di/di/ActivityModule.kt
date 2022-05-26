@@ -1,4 +1,11 @@
 package id.ac.umn.app.mvvm_di.di
 
-class ActivityModule {
+import dagger.Module
+import dagger.android.ContributesAndroidInjector
+import id.ac.umn.app.mvvm_di.MainActivity
+
+@Module
+abstract class ActivityModule {
+    @ContributesAndroidInjector
+    abstract fun  mvvmMainActivity():MainActivity
 }
