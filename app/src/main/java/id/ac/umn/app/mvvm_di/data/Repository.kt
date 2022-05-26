@@ -1,7 +1,7 @@
 package id.ac.umn.app.mvvm_di.data
 
-import id.ac.umn.app.mvvm_di.ApiHelper
 
+import id.ac.umn.app.mvvm_di.data.service.ApiHelper
 
 
 //(API, Room)

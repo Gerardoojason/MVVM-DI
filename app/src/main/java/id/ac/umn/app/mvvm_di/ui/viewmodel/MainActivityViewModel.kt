@@ -1,13 +1,16 @@
 package id.ac.umn.app.mvvm_di
 
 import androidx.lifecycle.*
-import com.binar.retrofit.data.Repository
-import com.binar.retrofit.data.Resource
-import com.binar.retrofit.data.model.GetAllPostsResponseItem
+import id.ac.umn.app.mvvm_di.data.GetAllPostsResponseItem
+import id.ac.umn.app.mvvm_di.data.Repository
+
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.inject.Inject
 
-class MainActivityViewModel(private val repository: Repository) : ViewModel() {
+class MainActivityViewModel @Inject constructor(
+    private val repository: Repository
+) : ViewModel() {
 
     private val _posts = MutableLiveData<Resource<List<GetAllPostsResponseItem>>>()
     val posts: LiveData<Resource<List<GetAllPostsResponseItem>>>

@@ -3,22 +3,23 @@ package id.ac.umn.app.mvvm_di
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import com.binar.retrofit.data.service.ApiClient
-import com.binar.retrofit.data.service.ApiHelper
+
 
 
 
 import id.ac.umn.app.mvvm_di.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainActivityViewModel
-    private lateinit var repository: Repository
+    private  val viewModel: MainActivityViewModel by viewModels()
+
     private lateinit var progressDialog: ProgressDialog
     private lateinit var adapter: MainAdapter
 
@@ -27,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        repository = Repository(ApiHelper(ApiClient.getInstance()))
-        viewModel = ViewModelProvider(this, ViewModelFactory(repository))[MainActivityViewModel::class.java]
+
+
 
         progressDialog = ProgressDialog(this)
         adapter = MainAdapter()

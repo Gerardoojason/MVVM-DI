@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.umn.app.mvvm_di.data.GetAllPostsResponseItem
 
 import id.ac.umn.app.mvvm_di.databinding.ItemContentBinding
 
